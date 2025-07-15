@@ -1,0 +1,44 @@
+material ground/Grass
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture grass.png
+                scale 0.01 0.01
+            }
+        }
+    }
+}
+
+material ground/Dirt
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture dirt.png
+                scale 0.01 0.01
+            }
+        }
+    }
+}
+
+material ground/Soil
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture soil.png
+                scale 0.01 0.01
+            }
+        }
+    }
+}

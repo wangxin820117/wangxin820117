@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!-- Gripper shell -->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find ur_description)/urdf/common_materials.xacro"/>
+
+
+  <xacro:macro name="cart" params="parent name">
+    <!-- Links -->
+    <link name="${name}_link">
+      <inertial>
+        <mass value="300"/>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="15.25" ixy="0" ixz="0" iyy="62.5" iyz="0" izz="65.25"/>
+      </inertial>
+      <collision>
+        <geometry>
+          <mesh filename="package://abb_l515_description/meshes/cart/platform.stl" scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+      <visual>
+        <geometry>
+          <mesh filename="package://abb_l515_description/meshes/cart/platform.stl" scale="0.001 0.001 0.001" />
+        </geometry>
+        <xacro:material_abb_white />
+      </visual>
+    </link>
+  </xacro:macro>
+</robot>

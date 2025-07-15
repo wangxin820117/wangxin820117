@@ -1,0 +1,238 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <scene>
+      <background>1 1 1 1</background>
+    </scene>
+    <!-- <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8117 0.8705 0.8784 1</ambient>
+            <diffuse>0.8117 0.8705 0.8784 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model> -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <model name='tomato'>
+      <pose>0.75 0 1.05 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://tomato/meshes/tomato5.dae</uri>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='branch1'>
+          <geometry>
+            <mesh>
+              <uri>model://tomato/meshes/tomato5.dae</uri>
+              <submesh>
+                <name>Branch1</name>
+              </submesh>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tomato/materials/scripts</uri>
+              <uri>model://tomato/materials/textures</uri>
+              <name>tomato/Branch1</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='leaf1'>
+          <geometry>
+            <mesh>
+              <uri>model://tomato/meshes/tomato5.dae</uri>
+              <submesh>
+                <name>Leaf1</name>
+              </submesh>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tomato/materials/scripts</uri>
+              <uri>model://tomato/materials/textures</uri>
+              <name>tomato/Leaf1</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='leaf2'>
+          <geometry>
+            <mesh>
+              <uri>model://tomato/meshes/tomato5.dae</uri>
+              <submesh>
+                <name>Leaf2</name>
+              </submesh>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tomato/materials/scripts</uri>
+              <uri>model://tomato/materials/textures</uri>
+              <name>tomato/Leaf2</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='blossom1'>
+          <geometry>
+            <mesh>
+              <uri>model://tomato/meshes/tomato5.dae</uri>
+              <submesh>
+                <name>Blossom1</name>
+              </submesh>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tomato/materials/scripts</uri>
+              <uri>model://tomato/materials/textures</uri>
+              <name>tomato/Blossom1</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='blossom2'>
+          <geometry>
+            <mesh>
+              <uri>model://tomato/meshes/tomato5.dae</uri>
+              <submesh>
+                <name>Blossom2</name>
+              </submesh>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tomato/materials/scripts</uri>
+              <uri>model://tomato/materials/textures</uri>
+              <name>tomato/Blossom2</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='blossom3'>
+          <geometry>
+            <mesh>
+              <uri>model://tomato/meshes/tomato5.dae</uri>
+              <submesh>
+                <name>Blossom3</name>
+              </submesh>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tomato/materials/scripts</uri>
+              <uri>model://tomato/materials/textures</uri>
+              <name>tomato/Blossom3</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='fruit1'>
+          <geometry>
+            <mesh>
+              <uri>model://tomato/meshes/tomato5.dae</uri>
+              <submesh>
+                <name>Fruit1</name>
+              </submesh>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tomato/materials/scripts</uri>
+              <uri>model://tomato/materials/textures</uri>
+              <name>tomato/Fruit1</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='fruit3'>
+          <geometry>
+            <mesh>
+              <uri>model://tomato/meshes/tomato5.dae</uri>
+              <submesh>
+                <name>Fruit3</name>
+              </submesh>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tomato/materials/scripts</uri>
+              <uri>model://tomato/materials/textures</uri>
+              <name>tomato/Fruit3</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='fruit4'>
+          <geometry>
+            <mesh>
+              <uri>model://tomato/meshes/tomato5.dae</uri>
+              <submesh>
+                <name>Fruit4</name>
+              </submesh>
+              <scale>0.4 0.4 0.4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tomato/materials/scripts</uri>
+              <uri>model://tomato/materials/textures</uri>
+              <name>tomato/Fruit4</name>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+  </world>
+</sdf>

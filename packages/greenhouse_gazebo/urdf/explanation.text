@@ -1,0 +1,4 @@
+tomato1-tomato10 is origional models with 0.4 scale, which will be used in experiment 1.
+tomato21-30 is the modified models, which will be used in experiment 2 to test the scalability of the method.
+garlic1 is used to for testing the possiblity of using online model in simulation.
+pepper6-pepper8 are pepper model used in paper 1 to test the performance of the method in a novel environment. 

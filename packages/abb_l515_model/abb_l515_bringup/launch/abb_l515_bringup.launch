@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- bring up the agent. -->
+    <!--~~~~~~~~~~~~~~~~~~~ SIMULATION OR REAL ~~~~~~~~~~~~~~~~~~~-->
+
+  <!-- the "mode" argument controls whether we connect to a Simulated or Real robot -->
+  <arg name="sim" doc="Use Gazebo simulator instead of real robot" />
+  <!-- if sim=false, a robot_ip argument is required -->
+  <arg name="robot_ip" default="192.168.125.1" doc="IP of controller" />
+  <!-- use sim time -->
+  <param name="use_sim_time" type="bool" value="$(arg sim)" />
+  <!-- usecase -->
+  <arg name="usecase" default="greenhouse" doc="Flexcraft usecase" />
+  <arg name="model" default="tomato8"/>
+  <!-- egm driver? -->
+  <arg name="egm" doc="Use EGM driver" />
+
+  <arg name="octomap_avoidance_enabled" default="true" doc="Enable octomap-based collision avoidance" />
+ 
+  <!--~~~~~~~~~~~~~~~~~~ ROBOT CONFIGURATION ~~~~~~~~~~~~~~~~~~-->
+  <!--<group unless="$(arg sim)">
+    <remap from="/joint_states" to="/egm/joint_states"/>
+  </group>-->
+
+  
+  <!-- non-standard joint names -->
+  <rosparam command="load" file="$(find abb_irb1200_support)/config/joint_names_irb1200_5_90.yaml" />
+  <!-- load the robot_description parameter before launching ROS-Industrial nodes -->
+  <include file="$(find abb_l515_moveit_config)/launch/planning_context.launch" >
+    <arg name="load_robot_description" value="true" />
+  </include>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~ EXECUTION ~~~~~~~~~~~~~~~~~~~~~~~-->
+
+  <!-- if sim is true, run the robot simulator and action interface nodes -->
+  <group if="$(arg sim)">
+    <!-- gazebo environment -->
+    <include file="$(find abb_l515_bringup)/launch/abb_l515_gazebo.launch">
+      <arg name="usecase" value="$(arg usecase)"/>
+      <arg name="egm" value="$(arg egm)"/>
+      <arg name="model" value="$(arg model)"/>
+    </include>
+    
+    
+   <!-- joint state publisher -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="source_list">[/joint_states]</rosparam>
+  </node> 
+  </group>
+  
+  <!-- If sim is false, run the "real robot" interface nodes -->
+  <group unless="$(arg sim)">
+    <!-- real environment -->
+    <include file="$(find abb_l515_bringup)/launch/abb_l515_real_world.launch">
+      <arg name="egm" value="$(arg egm)"/>
+      <arg name="robot_ip" value="$(arg robot_ip)" />
+    </include>
+  </group>
+  
+  <!-- publish the robot state (tf transforms) -->
+  <!-- if egm is false, do not remap joint_states topic -->
+  <group unless="$(arg egm)">
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"></node> 
+  </group>
+  <!-- if egm is true, remap joint_states topic -->
+  <group if="$(arg egm)">
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <!-- <remap from="/joint_states" to="/egm/joint_states"/> -->
+  </node>
+ </group>
+
+  <!-- agent model: arm -->
+  <include file="$(find abb_control)/launch/arm_control_node.launch" pass_all_args="true" />
+  
+  <!-- run the main MoveIt executable -->
+  <include file="$(find abb_l515_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+    <arg name="egm" value="$(arg egm)"/>
+    <arg name="octomap_avoidance_enabled" value="$(arg octomap_avoidance_enabled)"/>
+  </include>
+
+  <!-- launch Rviz for visualization-->
+  <include file="$(find abb_l515_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find abb_l515_moveit_config)/launch/moveit.rviz"/>
+    <arg name="debug" value="false"/>
+  </include> 
+</launch>

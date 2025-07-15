@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!-- Gripper connector -->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find ur_description)/urdf/common_materials.xacro"/>
+
+
+  <xacro:macro name="gripper_connector" params="parent name">
+    <!-- Links -->
+    <link name="${name}_link">
+      <inertial>
+        <mass value="0.001"/>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      </inertial>
+      <collision>
+        <geometry>
+          <mesh filename="package://abb_l515_description/meshes/gripper/gripper_connector.stl" scale="0 0 0" />
+        </geometry>
+      </collision>
+      <visual>
+        <geometry>
+          <mesh filename="package://abb_l515_description/meshes/gripper/gripper_connector.stl" scale="0.001 0.001 0.001" />
+        </geometry>
+        <xacro:material_abb_black />
+      </visual>
+    </link>
+  </xacro:macro>
+</robot>

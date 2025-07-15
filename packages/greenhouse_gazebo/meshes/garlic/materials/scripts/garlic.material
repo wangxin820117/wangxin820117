@@ -1,0 +1,23 @@
+material garlic/garlic1
+{
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture garlic1.png
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

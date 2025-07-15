@@ -1,0 +1,159 @@
+material tomato/Branch1
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture AG15brn1.png
+            }
+        }
+    }
+}
+
+material tomato/Leaf1
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture AG15lef1.png
+            }
+        }
+    }
+}
+
+material tomato/Leaf2
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture AG15lef2.png
+            }
+        }
+    }
+}
+
+material tomato/Blossom1
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture AG15blo1.png
+            }
+        }
+    }
+}
+
+material tomato/Blossom2
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture AG15blo2.png
+            }
+        }
+    }
+}
+
+material tomato/Blossom3
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture AG15blo3.png
+            }
+        }
+    }
+}
+
+material tomato/Fruit1
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture AG15frt1.png
+            }
+        }
+    }
+}
+
+material tomato/Fruit2
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture AG15frt2.png
+            }
+        }
+    }
+}
+
+material tomato/Fruit3
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture AG15frt3.png
+            }
+        }
+    }
+}
+
+material tomato/Fruit4
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture AG15frt4.png
+            }
+        }
+    }
+}

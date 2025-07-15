@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <!--include>
+      <uri>model://ground_plane</uri>
+    </include-->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <model name='maize'>
+      <pose>0.75 0 1.05 0 0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://maize/meshes/maize.dae</uri>
+              <scale>0.7 0.7 0.5</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://maize/meshes/maize.dae</uri>
+              <scale>0.7 0.7 0.5</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+  </world>
+</sdf>

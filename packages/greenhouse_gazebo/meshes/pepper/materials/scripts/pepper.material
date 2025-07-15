@@ -1,0 +1,297 @@
+material pepper/pepper_6_branch
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07brn1.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_6_fru1
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07frt2.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_6_fru2
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07frt1.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_6_leaf1
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07lef2.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_6_leaf2
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07lef1.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_7_branch
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07brn1.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_7_fru1
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07frt0.tif
+            }
+        }
+    }
+}
+material pepper/pepper_7_fru2
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07frt1.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_7_fru3
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07frt2.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_7_leaf1
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07lef2.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_7_leaf2
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07lef1.tif
+            }
+        }
+    }
+}
+
+
+material pepper/pepper_8_branch
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07brn1.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_8_fru1
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07frt0.tif
+            }
+        }
+    }
+}
+material pepper/pepper_8_fru2
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07frt1.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_8_fru3
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07frt2.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_8_leaf1
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07lef1.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_8_leaf2
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07lef3.tif
+            }
+        }
+    }
+}
+
+material pepper/pepper_8_leaf3
+{
+    receive_shadows on
+    technique
+    {
+        pass
+        {
+            alpha_rejection greater 128
+            texture_unit
+            {
+                texture VG07lef2.tif
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

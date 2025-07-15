@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="egm" doc="Use EGM driver" default="false"/>
+<arg name="robot_ip" default="192.168.125.1" doc="ip of robot" />
+
+
+  <!-- abb interface -->
+  <group unless="$(arg egm)"> 
+    
+    <include file="$(find abb_irb1200_support)/launch/robot_interface_download_irb1200_5_90.launch" >
+      <arg name="robot_ip" value="$(arg robot_ip)"/>
+    </include>
+  </group>
+  <group if="$(arg egm)">
+    <remap from="/egm/joint_states" to="/joint_states"/>
+    <include file="$(find abb_robot_bringup_examples)/launch/ex2_rws_and_egm_6axis_robot.launch" >
+      <arg name="robot_ip" value="$(arg robot_ip)"/>
+    </include>
+    <!-- <node 
+        pkg="abb_control" 
+        name="EGM_intitializer_node" 
+        type="egm_controller_initialization.py" 
+        output="screen">
+    </node> -->
+
+  </group>
+
+  <!-- load urdf -->
+  <!-- <param name="robot_description" command="$(find xacro)/xacro '$(find abb_l515_description)/urdf/abb_l515.xacro'" /> -->
+
+  <!-- camera -->
+  <include file="$(find realsense2_camera)/launch/rs_rgbd.launch" >
+      <arg name="align_depth" value="true" />
+      <arg name="depth_width" value="640" />
+      <arg name="depth_height" value="480" />
+      <arg name="depth_fps" value="15" />
+      <arg name="color_width" value="960" />
+      <arg name="color_height" value="540" />
+      <arg name="color_fps" value="15" />
+  </include>
+
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure"/>
+  
+  <!-- <group if="$(arg egm)">  -->
+  <!-- Start EGM Moveit node --> 
+    <!-- <group>       
+        <node 
+            pkg="abb_l515_moveit_config" 
+            name="egm_moveit" 
+            type="egm_moveit.py" 
+            output="screen">
+        </node>
+    </group> -->
+  <!-- </group> -->
+  
+</launch>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- Camera mount for Realsense l515. -->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  
+
+
+  <xacro:macro name="mount_l515" params="parent name">
+    <!-- Links -->
+    <link name="${name}_link">
+      <inertial>
+        <mass value="0.00742"/>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      </inertial>
+      <collision>
+        <geometry>
+        <!-- gripper2024_45deg_cameramoundblender -->
+          <mesh filename="package://abb_l515_description/meshes/camera_mount/collision/camera_mount_and_gripper.stl" scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+      <visual>
+        <geometry>
+          <mesh filename="package://abb_l515_description/meshes/camera_mount/collision/camera_mount_and_gripper.stl" scale="0.001 0.001 0.001" />
+        </geometry>
+        <xacro:material_abb_white />
+      </visual>
+    </link>
+  </xacro:macro>
+</robot>

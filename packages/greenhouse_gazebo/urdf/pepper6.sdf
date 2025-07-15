@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name='pepper'>
+    <pose>0 0 0 0 0 0</pose>
+    <!-- <static>1</static> -->
+    <static>1</static>
+    <link name='link'>
+      <gravity>0</gravity>
+      <collision name='collision'>
+        <geometry>
+          <mesh>
+            <uri>model://pepper/meshes/pepper6.dae</uri>
+            <scale>0.6 0.6 0.6</scale>
+          </mesh>
+        </geometry>
+        <max_contacts>10</max_contacts>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <bounce/>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='pepper_6_branch'>
+        <geometry>
+          <mesh>
+            <uri>model://pepper/meshes/pepper6.dae</uri>
+            <submesh>
+              <name>pepper_6_branch</name>
+            </submesh>
+            <scale>0.6 0.6 0.6</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://pepper/materials/scripts</uri>
+            <uri>model://pepper/materials/textures</uri>
+            <name>pepper/pepper_6_branch</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='pepper_6_leaf1'>
+        <geometry>
+          <mesh>
+            <uri>model://pepper/meshes/pepper6.dae</uri>
+            <submesh>
+              <name>pepper_6_leaf1</name>
+            </submesh>
+            <scale>0.6 0.6 0.6</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://pepper/materials/scripts</uri>
+            <uri>model://pepper/materials/textures</uri>
+            <name>pepper/pepper_6_leaf1</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='pepper_6_leaf2'>
+        <geometry>
+          <mesh>
+            <uri>model://pepper/meshes/pepper6.dae</uri>
+            <submesh>
+              <name>pepper_6_leaf2</name>
+            </submesh>
+            <scale>0.6 0.6 0.6</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://pepper/materials/scripts</uri>
+            <uri>model://pepper/materials/textures</uri>
+            <name>pepper/pepper_6_leaf2</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='pepper_6_fru1'>
+        <geometry>
+          <mesh>
+            <uri>model://pepper/meshes/pepper6.dae</uri>
+            <submesh>
+              <name>pepper_6_fru1</name>
+            </submesh>
+            <scale>0.6 0.6 0.6</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://pepper/materials/scripts</uri>
+            <uri>model://pepper/materials/textures</uri>
+            <name>pepper/pepper_6_fru1</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='pepper_6_fru2'>
+        <geometry>
+          <mesh>
+            <uri>model://pepper/meshes/pepper6.dae</uri>
+            <submesh>
+              <name>pepper_6_fru2</name>
+            </submesh>
+            <scale>0.6 0.6 0.6</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://pepper/materials/scripts</uri>
+            <uri>model://pepper/materials/textures</uri>
+            <name>pepper/pepper_6_fru2</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+    </link>
+  </model>
+</sdf>

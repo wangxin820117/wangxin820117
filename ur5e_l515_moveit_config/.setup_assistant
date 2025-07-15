@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ur_description
+    relative_path: urdf/ur5e_l515.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/ur5e_l515_robot.srdf
+  CONFIG:
+    author_name: xin wang
+    author_email: xin1.wang@wur.nl
+    generated_timestamp: 1751295210

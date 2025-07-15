@@ -1,0 +1,181 @@
+<?xml version="1.0" ?>
+
+
+
+<robot name="abb_l515" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:arg name="with_gripper" default="true" />
+  <xacro:arg name="with_cart" default="false" />
+
+  <xacro:include filename="$(find abb_irb1200_gazebo)/urdf/irb1200_5_90_macro.xacro" />
+  
+  <xacro:include filename="$(find realsense2_description)/urdf/_l515.urdf.xacro" />
+  <xacro:include filename="$(find abb_l515_description)/urdf/_l515_kinect_plugin.urdf.xacro" />
+
+  <!-- WITH GRIPPER -->
+  <xacro:if value="$(arg with_gripper)">
+    <xacro:include filename="$(find abb_l515_description)/urdf/_gripper_and_l515_mount.urdf.xacro"/>
+    <xacro:include filename="$(find abb_l515_description)/urdf/cut_mark.urdf.xacro"/>
+  </xacro:if>
+  <!-- WITHOUT GRIPPER -->
+  <xacro:unless value="$(arg with_gripper)">
+    <xacro:include filename="$(find abb_l515_description)/urdf/_l515_mount.urdf.xacro"/>
+  </xacro:unless>
+
+
+  <xacro:property name="prefix" value="" />
+  <xacro:property name="name" value="camera" />
+  <xacro:abb_irb1200_5_90_gazebo prefix="${prefix}" />
+  <xacro:mount_l515 parent="${prefix}tool0" name="mount_l515" />
+
+  <!-- WITH GRIPPER -->
+  <xacro:if value="$(arg with_gripper)">
+    <xacro:cut_mark parent="mount_l515" name="cut_mark" />
+  </xacro:if>
+
+
+  <xacro:sensor_l515 parent="${prefix}tool0" name="camera" use_nominal_extrinsics="true">
+    <origin xyz=" 0.10739899355722747 0.006564630410593605 0.013" rpy="-0.6528908 -1.5517437 0.6870741  "/>
+
+  <!-- <origin xyz=" 0.10739899355722747 0.006564630410593605 -0.002716556458155613" rpy="-0.6528908 -1.5517437 0.6870741  "/> -->
+  <!-- <origin xyz="0.11175275500319028 0.0021920436715461714 0.014683434265381214" rpy="-1.0318784 -1.5609093 1.0629467 "/>  -->
+    <!-- <origin xyz="0.11175275500319028 0.0021920436715461714 0.014683434265381214" rpy="-2.3114841 -1.5538007 2.3034212 "/>  -->
+  <!-- x: -2.3114841, y: -1.5538007, z: 2.3034212-->
+  <!--<origin xyz="0.10840548009246517 0 0" rpy="0.0  ${-0.5*pi} 0.0 "/>--><!--FEB 2 1439 2024--> <!--in home position, camera: XXX YAW XXX-->
+
+    <!-- <origin xyz="0.10454105654977962  0.0028742020694962392  0.002213790863296182" rpy="-0.249649 -1.57079633 0.2495544"/> --><!--sep 2023-->
+
+    <!-- <origin xyz="0.11425405935450249 -0.0006302559970166686  0.016651959258295435" rpy="-1.0654466 -1.5583906 1.0887286"/> --><!--FEB 1 2024-->
+
+  <!-- <origin xyz="0.1095649959733664 -0.019758665063274318  0.014679545684278504" rpy="-1.210216 -1.5569769 1.0974511"/> -->
+  <!-- <origin xyz="0.10998852406661433 -0.0017158328240001505  0.012773292255900457" rpy="-0.7857962 -1.5591234 0.7791306"/>  JAN 24 2024-->
+   
+   <!-- 0.10998852406661433 -0.0017158328240001505 0.012773292255900457 -0.7857962 -1.5591234 0.7791306 -->
+    <!--  x: 0.1050636192434178 y: -0.001130167939779076 z: 0.0008087292783968817 [ x: 1.3895415, y: -1.5160878, z: -1.3135486 ] -->
+  <!-- <origin xyz="0.11310929829292048 0.03379215340060728 -0.06726411448981472" rpy="-0.0309404 -1.5541982 0.0466489"/> -->
+  <!-- <origin xyz="0.09065484656565317 0.011385855180052784 0.0254622737316628" rpy="-2.5518543 -1.5407967 2.6820385"/> -->
+  <!-- <origin xyz="0.10 0.0010650384356907369 0.010552961331817563" rpy="-0.7662698 -1.5486988 0.7653934"/> -->
+  <!-- <origin xyz="0.08879700753118656 -0.00015407512876211994 0.02127801639044679" rpy="-1.5824156 -1.5622409 1.5871367"/> -->
+  <!-- <origin xyz="0.075 0 0.0175" rpy="0 -${pi/2} 0"/> -->
+  </xacro:sensor_l515>
+  <xacro:plugin_l515 parent="${name}_link" name="${name}" />
+
+  <link name="world" />
+  <!-- WITHOUT CART -->
+  <xacro:unless value="$(arg with_cart)">
+    <!-- Connect robot to world. -->
+    
+    <joint name="world_to_base_link_joint" type="fixed">
+      <!-- <origin xyz="0 0.05 0.27" rpy="0 0 0"/> -->
+          <origin xyz="0 0.05 0.27" rpy="0 0 ${pi}"/>
+      <parent link="world" />
+      <child link="${prefix}base_link" />
+    </joint>
+  </xacro:unless>
+
+
+<!-- WITH CART -->
+<xacro:if value="$(arg with_cart)">
+  <xacro:include filename="$(find abb_l515_description)/urdf/cart.urdf.xacro"/>
+  <xacro:include filename="$(find abb_l515_description)/urdf/cart_box.urdf.xacro"/>
+  <!-- Define cart_frame as a link -->
+
+  <!-- Define cart_frame as a link -->
+  <link name="cart_frame_link" /> 
+  <link name="global_world" /> <!-- THIS IS THE NEW GLOBAL WORLD-->
+
+  <joint name="world_to_base_link_joint" type="fixed">
+    <!-- <origin xyz="0 0.05 0.27" rpy="0 0 0"/> -->
+    <!-- forward y(left) up-->
+        <origin xyz="0.0 0.0 0.68" rpy="0 0 ${pi}"/>
+    <parent link="world" />
+    <child link="${prefix}base_link" />
+  </joint>
+
+  <!-- Connect cart_frame to world -->
+  <joint name="world_to_cart_frame_joint" type="fixed">
+    <parent link="world" />
+    <child link="cart_frame_link" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <!--<axis xyz="1 1 1" />--> <!-- Allows movement along the XYZ axis -->
+    <!-- <limit lower="-10" upper="10" effort="1000" velocity="10"/> -->
+  </joint>
+  <joint name="global_world_to_world_joint" type="fixed">
+    <parent link="world" />
+    <child link="global_world" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <!-- Allows movement along the XYZ axis-->
+    <!--<axis xyz="1 1 1" /> -->
+    <!-- <limit lower="-10" upper="10" effort="1000" velocity="10"/> -->
+  </joint>
+
+  <!-- Instantiate the cart macro -->
+  <xacro:cart parent="cart_frame_link" name="${prefix}cart"/>
+  
+
+  <!-- Connect cart to cart_frame -->
+  <joint name="cart_frame_to_cart_joint" type="fixed">
+    <parent link="cart_frame_link" />
+    <child link="${prefix}cart_link" />
+    <!-- <origin xyz="0 -0.6 0" rpy="0 0 0"/> -->
+    <!-- forward left up -->
+    <origin xyz="-0.55 0.33 0.23" rpy="${pi/2} 0 0"/>
+  </joint>
+
+  <!-- Instantiate the cart_box macro -->
+  
+  <xacro:cart_box parent="${prefix}cart_link" name="${prefix}cart_box"/>
+
+  <!-- Connect cart_box to cart -->
+  <joint name="cart_to_cart_box_joint" type="fixed">
+  <!-- forward left up -->
+    <origin xyz="1.32 0.75 0.45" rpy="0 0 0"/> 
+    <parent link="${prefix}cart_link" />
+    <child link="${prefix}cart_box_link" />
+  </joint>
+
+</xacro:if>
+
+
+  <!-- Connect robot to world. -->
+  <link name="visual" />
+  <joint name="world_to_visual_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-${pi/2} 0 -${pi/2}"/>
+    <parent link="world" />
+    <child link="visual" />
+  </joint>
+
+
+  <!-- WITH GRIPPER -->
+  <xacro:if value="$(arg with_gripper)">
+    <joint name="$arm_to_mount_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+      <parent link="${prefix}tool0"/>
+      <child link="mount_l515_link" />
+    </joint>
+  <joint name="$link6_to_cut_mark" type="fixed">
+    <origin xyz="0.17 0 0" rpy="${pi/2} 0 0"/> <!-- OLD ONE FOR OLD CUTTER-->
+    <!-- AWAY FROM mount, left/right, up -->
+    <!-- <origin xyz="0.186 0 0.103" rpy="${pi/2} ${-pi/4} 0"/> -->
+    <parent link="${prefix}link_6"/>
+    <child link="cut_mark_link" />
+  </joint> 
+  </xacro:if>
+  <!-- WITHOUT GRIPPER -->
+  <xacro:unless value="$(arg with_gripper)">
+    <!-- Connect camera mount to arm. -->
+    <joint name="$arm_to_mount_joint" type="fixed">
+      <origin xyz="-0.0175 -0.03 0.004" rpy="-${pi} 0 ${pi/2}"/>
+      <parent link="${prefix}tool0"/>
+      <child link="mount_l515_link" />
+    </joint>
+  </xacro:unless>
+
+
+  <!-- Plugin for ros_control. -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+</robot>
