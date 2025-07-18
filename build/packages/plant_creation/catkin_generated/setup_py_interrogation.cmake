@@ -1,0 +1,7 @@
+set(plant_creation_SETUP_PY_SETUP_MODULE "distutils.core")
+set(plant_creation_SETUP_PY_VERSION "0.0.0")
+set(plant_creation_SETUP_PY_SCRIPTS "")
+set(plant_creation_SETUP_PY_PACKAGES "plant_creation")
+set(plant_creation_SETUP_PY_PACKAGE_DIRS "src/plant_creation")
+set(plant_creation_SETUP_PY_MODULES "")
+set(plant_creation_SETUP_PY_MODULE_DIRS "")

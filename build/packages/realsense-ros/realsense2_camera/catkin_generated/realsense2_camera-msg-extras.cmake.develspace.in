@@ -1,0 +1,2 @@
+set(realsense2_camera_MESSAGE_FILES "/home/wangxin/Documents/Wx_ws/src/packages/realsense-ros/realsense2_camera/msg/IMUInfo.msg;/home/wangxin/Documents/Wx_ws/src/packages/realsense-ros/realsense2_camera/msg/Extrinsics.msg;/home/wangxin/Documents/Wx_ws/src/packages/realsense-ros/realsense2_camera/msg/Metadata.msg")
+set(realsense2_camera_SERVICE_FILES "/home/wangxin/Documents/Wx_ws/src/packages/realsense-ros/realsense2_camera/srv/DeviceInfo.srv")

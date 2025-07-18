@@ -1,0 +1,8 @@
+prefix=/home/wangxin/Documents/Wx_ws/install
+
+Name: active_vision
+Description: Description of active_vision
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/wangxin/Documents/Wx_ws/devel
+
+Name: utils
+Description: Description of utils
+Version: 0.0.0
+Cflags: -I/home/wangxin/Documents/Wx_ws/src/packages/common/utils/include
+Libs: -L${prefix}/lib -lutils
+Requires: roscpp rospy

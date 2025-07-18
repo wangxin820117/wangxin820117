@@ -1,0 +1,8 @@
+prefix=/home/wangxin/Documents/Wx_ws/devel
+
+Name: greenhouse_gazebo
+Description: Description of greenhouse_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

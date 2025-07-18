@@ -1,0 +1,7 @@
+set(active_vision_SETUP_PY_SETUP_MODULE "distutils.core")
+set(active_vision_SETUP_PY_VERSION "0.0.0")
+set(active_vision_SETUP_PY_SCRIPTS "")
+set(active_vision_SETUP_PY_PACKAGES "active_vision")
+set(active_vision_SETUP_PY_PACKAGE_DIRS "src/active_vision")
+set(active_vision_SETUP_PY_MODULES "")
+set(active_vision_SETUP_PY_MODULE_DIRS "")

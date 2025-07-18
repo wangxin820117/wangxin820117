@@ -1,0 +1,7 @@
+set(view_sampling_SETUP_PY_SETUP_MODULE "distutils.core")
+set(view_sampling_SETUP_PY_VERSION "0.0.0")
+set(view_sampling_SETUP_PY_SCRIPTS "")
+set(view_sampling_SETUP_PY_PACKAGES "view_sampling")
+set(view_sampling_SETUP_PY_PACKAGE_DIRS "src/view_sampling")
+set(view_sampling_SETUP_PY_MODULES "")
+set(view_sampling_SETUP_PY_MODULE_DIRS "")

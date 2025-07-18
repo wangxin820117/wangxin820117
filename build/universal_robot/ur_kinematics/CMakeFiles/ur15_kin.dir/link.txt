@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libur15_kin.so -o /home/wangxin/Documents/Wx_ws/devel/lib/libur15_kin.so CMakeFiles/ur15_kin.dir/src/ur_kin.cpp.o 

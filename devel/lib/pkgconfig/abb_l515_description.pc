@@ -1,0 +1,8 @@
+prefix=/home/wangxin/Documents/Wx_ws/devel
+
+Name: abb_l515_description
+Description: Description of abb_l515_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
